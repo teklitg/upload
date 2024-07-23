@@ -14,7 +14,7 @@ const ImageUpload = () => {
     const formData = new FormData();
     formData.append('image', image);
 
-    axios.post('http://localhost:5000/upload', formData)
+    axios.post('https://backupload.vercel.app/api/upload', formData)
       .then((response) => {
         setImageURL(response.data.url);
         fetchImages();
@@ -23,7 +23,7 @@ const ImageUpload = () => {
   };
 
   const fetchImages = () => {
-    axios.get('http://localhost:5000/images')
+    axios.get('https://backupload.vercel.app/api/images')
       .then((response) => {
         setImages(response.data);
       })
